@@ -1,4 +1,7 @@
-### Hi there 👋
+Most of my projects don't have a UI, but here are the ones that do!
+- [Simulating stock price paths using geometric brownian motion](https://www.chrislross.com/BrownianMotionSimulation/BrownianMotionSimulation.html)
+- [Purchasing power parity salary converter](https://www.chrislross.com/PPPConverter/)
+- [Modelling interest rates using the Vasicek short rate model](https://www.chrislross.com/VasicekInterestRateModelSim/)
 
 <!--
 **fightingsleep/fightingsleep** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
