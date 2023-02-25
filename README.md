@@ -1,5 +1,5 @@
 Most of my projects don't have a UI, but here are the ones that do!
-- [Simulating stock price paths using geometric brownian motion](https://www.chrislross.com/BrownianMotionSimulation/BrownianMotionSimulation.html)
+- [Simulating stock price paths using geometric brownian motion](https://www.chrislross.com/BrownianMotionSimulation/)
 - [Purchasing power parity salary converter](https://www.chrislross.com/PPPConverter/)
 - [Modelling interest rates using the Vasicek short rate model](https://www.chrislross.com/VasicekInterestRateModelSim/)
 
