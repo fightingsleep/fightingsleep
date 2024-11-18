@@ -1,4 +1,5 @@
 ![Chris Ross](https://readme-typing-svg.demolab.com?font=Nunito&weight=600&size=35&duration=3000&color=FFFFFF&vCenter=true&center=true&repeat=false&height=34&width=167&lines=Chris+Ross)
+
 ![Software Developer](https://readme-typing-svg.demolab.com?font=Nunito&weight=300&size=14&duration=4000&color=FFFFFF&vCenter=true&width=130&height=15&lines=Software+Developer;Quant+Finance)
 
 [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-Profile-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/chrislross)
