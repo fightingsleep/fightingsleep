@@ -1,4 +1,6 @@
-[![Chris Ross](https://readme-typing-svg.demolab.com?font=Nunito&weight=600&size=35&duration=3000&color=FFFFFF&vCenter=true&repeat=false&height=34&width=167&lines=Chris+Ross)](#)
+<div style="font-family: 'Nunito', sans-serif; font-size: 40px;">
+Chris Ross
+</div>
 
 [![Software Developer](https://readme-typing-svg.demolab.com?font=Nunito&weight=300&size=14&duration=4000&color=FFFFFF&vCenter=true&width=130&height=15&lines=Software+Developer;Quant+Finance)](#)
 
