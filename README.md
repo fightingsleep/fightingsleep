@@ -1,4 +1,5 @@
-# Chris Ross
+Chris Ross
+===========================
 
 [![Software Developer](https://readme-typing-svg.demolab.com?font=Nunito&weight=300&size=14&duration=4000&color=FFFFFF&vCenter=true&width=130&height=15&lines=Software+Developer;Quant+Finance)](#)
 
