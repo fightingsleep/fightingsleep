@@ -1,5 +1,6 @@
-[![Chris Ross](https://readme-typing-svg.demolab.com?font=Nunito&weight=500&size=35&duration=3000&color=FFFFFF&vCenter=true&repeat=false&height=35&width=435&lines=Chris+Ross)](https://git.io/typing-svg)
-[![Software Developer](https://readme-typing-svg.demolab.com?font=Nunito&weight=300&size=14&duration=4000&color=FFFFFF&vCenter=true&width=435&height=14&lines=Software+Developer;Quant+Finance)](https://git.io/typing-svg)
+[![Chris Ross](https://readme-typing-svg.demolab.com?font=Nunito&weight=600&size=35&duration=3000&color=FFFFFF&vCenter=true&center=true&repeat=false&height=34&width=167&lines=Chris+Ross)](https://git.io/typing-svg)
+
+[![Software Developer](https://readme-typing-svg.demolab.com?font=Nunito&weight=300&size=14&duration=4000&color=FFFFFF&vCenter=true&width=130&height=14&lines=Software+Developer;Quant+Finance)](https://git.io/typing-svg)
 
 [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-Profile-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/chrislross)
 [![CV Badge](https://img.shields.io/badge/CV-Download-008080?style=flat&logo=readme&logoColor=white)](https://chrislross.com/cv.pdf)
