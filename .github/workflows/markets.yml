@@ -1,0 +1,20 @@
+name: Refresh markets gist
+
+# Writes the day's closes to the pinned markets.txt gist after the US close.
+# Needs a GIST_TOKEN secret: a fine-grained token with only "Gists: read and write".
+on:
+  schedule:
+    - cron: "30 21 * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/markets.py
+        env:
+          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
