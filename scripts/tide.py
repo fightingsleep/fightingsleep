@@ -72,13 +72,29 @@ for l in range(L):
 body.append(f'<g fill="#000" stroke="#fff" stroke-opacity=".3">{"".join(rings)}</g>')
 body += hi
 
+# Spec sheet under the name: label column, value column. Years are computed, so they stay current.
+SPEC = [
+    ("EXPERIENCE", [f"{years_since(CAREER_START, date.today())} YEARS"]),
+    ("SECTORS", ["US TECH · RETAIL BANKING · FINTECH", "INVESTMENT BANKING · HEDGE FUNDS"]),
+    ("BASED", ["LONDON"]),
+]
+spec, y = ['<line x1="45" y1="160" x2="430" y2="160" stroke="#fff" stroke-opacity=".14"/>'], 182
+for label, values in SPEC:
+    spec.append(f'<text x="45" y="{y}" fill="#fff" fill-opacity=".4" font-family="M,ui-monospace,monospace" font-weight="300" font-size="9" letter-spacing="1.8">{label}</text>')
+    for i, value in enumerate(values):
+        spec.append(f'<text x="143" y="{y + i * 16}" fill="#fff" fill-opacity=".85" font-family="M,ui-monospace,monospace" font-weight="400" font-size="9" letter-spacing="1.8">{value}</text>')
+    y += 16 * len(values) + 5
+body += spec
+
 fonts = ROOT / "assets" / "fonts"
 a = base64.b64encode((fonts / "archivo.woff2").read_bytes()).decode()
 m = base64.b64encode((fonts / "plex.woff2").read_bytes()).decode()
+m4 = base64.b64encode((fonts / "plex-400.woff2").read_bytes()).decode()
 css.insert(0, f"@font-face{{font-family:A;font-weight:300;src:url(data:font/woff2;base64,{a}) format('woff2')}}"
-              f"@font-face{{font-family:M;font-weight:300;src:url(data:font/woff2;base64,{m}) format('woff2')}}")
+              f"@font-face{{font-family:M;font-weight:300;src:url(data:font/woff2;base64,{m}) format('woff2')}}"
+              f"@font-face{{font-family:M;font-weight:400;src:url(data:font/woff2;base64,{m4}) format('woff2')}}")
 text = (f'<text x="44" y="92" fill="#fff" font-family="A,\'Helvetica Neue\',Arial,sans-serif" font-weight="300" font-size="46" letter-spacing="-0.9">Chris Ross</text>'
-        f'<text x="45" y="122" fill="#fff" fill-opacity=".55" font-family="M,ui-monospace,monospace" font-weight="300" font-size="11.5" letter-spacing="3.2">SENIOR SOFTWARE ENGINEER · {years_since(CAREER_START, date.today())} YEARS</text>')
+        f'<text x="45" y="122" fill="#fff" fill-opacity=".55" font-family="M,ui-monospace,monospace" font-weight="300" font-size="11.5" letter-spacing="3.2">SENIOR SOFTWARE ENGINEER</text>')
 svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="Chris Ross, senior software engineer">'
        f'<title>Chris Ross</title><style>{"".join(css)}</style>'
        f'<rect width="{W}" height="{H}" rx="8" fill="#000"/>{"".join(body)}{text}</svg>')
