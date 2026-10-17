@@ -17,9 +17,10 @@ FONT = base64.b64encode(FONT_PATH.read_bytes()).decode()
 font = TTFont(io.BytesIO(FONT_PATH.read_bytes()))
 CMAP, HMTX, UPM = font.getBestCmap(), font["hmtx"], font["head"].unitsPerEm
 
-# Lucide icons (ISC licence), 24x24 grid.
+# LinkedIn's official mark (via Simple Icons), drawn filled. Others are Lucide icons (ISC
+# licence), drawn as strokes. All on a 24x24 grid.
+BRAND = {"linkedin": '<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>'}
 ICONS = {
-    "linkedin": '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>',
     "cv": '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/>',
     "website": '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
 }
@@ -48,9 +49,10 @@ for key, label, variant in BUTTONS:
             f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{H + 1}" viewBox="0 0 {w} {H + 1}" role="img" aria-label="{label}">'
             f'<style>@font-face{{font-family:G;font-weight:500;src:url(data:font/woff2;base64,{FONT}) format("woff2")}}</style>'
             f'{shadow}<rect x=".5" y=".5" width="{w - 1}" height="{H - 1}" rx="{RADIUS - .5}" fill="{c["bg"]}" stroke="{c["border"]}"/>'
-            f'<g transform="translate({PAD} {(H - ICON) / 2}) scale({ICON / 24})" fill="none" stroke="{c["fg"]}" stroke-width="2" '
-            f'stroke-linecap="round" stroke-linejoin="round">{ICONS[key]}</g>'
-            f'<text x="{PAD + ICON + GAP}" y="{H / 2 + SIZE * .36:.1f}" fill="{c["fg"]}" font-family="G,Inter,-apple-system,Segoe UI,sans-serif" '
+            + (f'<g transform="translate({PAD} {(H - ICON) / 2}) scale({ICON / 24})" fill="{c["fg"]}">{BRAND[key]}</g>' if key in BRAND else
+               f'<g transform="translate({PAD} {(H - ICON) / 2}) scale({ICON / 24})" fill="none" stroke="{c["fg"]}" stroke-width="2" '
+               f'stroke-linecap="round" stroke-linejoin="round">{ICONS[key]}</g>')
+            + f'<text x="{PAD + ICON + GAP}" y="{H / 2 + SIZE * .36:.1f}" fill="{c["fg"]}" font-family="G,Inter,-apple-system,Segoe UI,sans-serif" '
             f'font-weight="500" font-size="{SIZE}">{label}</text></svg>'
         )
         (ROOT / "assets" / "buttons" / f"{key}-{theme}.svg").write_text(svg)
