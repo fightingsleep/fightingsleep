@@ -34,6 +34,7 @@ THEMES = {
               "outline": dict(bg="#ffffff", fg="#09090b", border="#e4e4e7")},
 }
 H, SIZE, PAD, ICON, GAP, RADIUS = 36, 14, 16, 16, 8, 8
+BRAND_ICON = 18  # solid logos need more pixels than line icons to stay crisp; whole-pixel position
 
 
 def text_width(s: str) -> float:
@@ -49,7 +50,7 @@ for key, label, variant in BUTTONS:
             f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{H + 1}" viewBox="0 0 {w} {H + 1}" role="img" aria-label="{label}">'
             f'<style>@font-face{{font-family:G;font-weight:500;src:url(data:font/woff2;base64,{FONT}) format("woff2")}}</style>'
             f'{shadow}<rect x=".5" y=".5" width="{w - 1}" height="{H - 1}" rx="{RADIUS - .5}" fill="{c["bg"]}" stroke="{c["border"]}"/>'
-            + (f'<g transform="translate({PAD} {(H - ICON) / 2}) scale({ICON / 24})" fill="{c["fg"]}">{BRAND[key]}</g>' if key in BRAND else
+            + (f'<g transform="translate({PAD - 1} {(H - BRAND_ICON) // 2}) scale({BRAND_ICON / 24})" fill="{c["fg"]}">{BRAND[key]}</g>' if key in BRAND else
                f'<g transform="translate({PAD} {(H - ICON) / 2}) scale({ICON / 24})" fill="none" stroke="{c["fg"]}" stroke-width="2" '
                f'stroke-linecap="round" stroke-linejoin="round">{ICONS[key]}</g>')
             + f'<text x="{PAD + ICON + GAP}" y="{H / 2 + SIZE * .36:.1f}" fill="{c["fg"]}" font-family="G,Inter,-apple-system,Segoe UI,sans-serif" '
