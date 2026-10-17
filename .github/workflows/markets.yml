@@ -1,6 +1,6 @@
-name: Refresh markets gist
+name: Refresh market gists
 
-# Writes the day's closes to the pinned markets.txt gist after the US close.
+# Writes the day's closes and rates to the pinned markets.txt and rates.txt gists after the US close.
 # Needs a GIST_TOKEN secret: a fine-grained token with only "Gists: read and write".
 on:
   schedule:
@@ -16,5 +16,9 @@ jobs:
         with:
           python-version: "3.12"
       - run: python scripts/markets.py
+        env:
+          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+      - run: python scripts/rates.py
+        if: always()
         env:
           GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
