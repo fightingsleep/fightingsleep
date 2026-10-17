@@ -25,7 +25,7 @@ def rnd():
     seed = (seed * 16807) % 2147483647
     return seed / 2147483647
 
-nodes = [[(W * (.4 + l / (L - 1) * .52), H * (.14 + (i + .5) / n * .72)) for i in range(n)] for l, n in enumerate(LAYERS)]
+nodes = [[(W * (.47 + l / (L - 1) * .46), H * (.14 + (i + .5) / n * .72)) for i in range(n)] for l, n in enumerate(LAYERS)]
 w = [[[rnd() ** 3 for _ in range(LAYERS[l + 1])] for _ in range(LAYERS[l])] for l in range(L - 1)]
 
 bell = lambda x, s: math.exp(-(x * x) / (2 * s * s))
@@ -77,8 +77,8 @@ a = base64.b64encode((fonts / "archivo.woff2").read_bytes()).decode()
 m = base64.b64encode((fonts / "plex.woff2").read_bytes()).decode()
 css.insert(0, f"@font-face{{font-family:A;font-weight:300;src:url(data:font/woff2;base64,{a}) format('woff2')}}"
               f"@font-face{{font-family:M;font-weight:300;src:url(data:font/woff2;base64,{m}) format('woff2')}}")
-text = (f'<text x="44" y="238" fill="#fff" font-family="A,\'Helvetica Neue\',Arial,sans-serif" font-weight="300" font-size="46" letter-spacing="-0.9">Chris Ross</text>'
-        f'<text x="45" y="268" fill="#fff" fill-opacity=".55" font-family="M,ui-monospace,monospace" font-weight="300" font-size="11.5" letter-spacing="3.2">SENIOR SOFTWARE ENGINEER · {years_since(CAREER_START, date.today())} YEARS</text>')
+text = (f'<text x="44" y="92" fill="#fff" font-family="A,\'Helvetica Neue\',Arial,sans-serif" font-weight="300" font-size="46" letter-spacing="-0.9">Chris Ross</text>'
+        f'<text x="45" y="122" fill="#fff" fill-opacity=".55" font-family="M,ui-monospace,monospace" font-weight="300" font-size="11.5" letter-spacing="3.2">SENIOR SOFTWARE ENGINEER · {years_since(CAREER_START, date.today())} YEARS</text>')
 svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="Chris Ross, senior software engineer">'
        f'<title>Chris Ross</title><style>{"".join(css)}</style>'
        f'<rect width="{W}" height="{H}" rx="8" fill="#000"/>{"".join(body)}{text}</svg>')
